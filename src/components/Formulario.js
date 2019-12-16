@@ -1,36 +1,36 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 const Formulario = ({ datosConsulta }) => {
-  const [ busqueda, guardarBusqueda ] = useState({
-    ciudad: "",
-    pais: ""
-  });
+  const [busqueda, guardarBusqueda] = useState({
+    ciudad: '',
+    pais: ''
+  })
 
   const handleChange = e => {
     guardarBusqueda({
       ...busqueda,
-      [ e.target.name ]: e.target.value
-    });
-  };
+      [e.target.name]: e.target.value
+    })
+  }
 
   const consultarClima = e => {
-    e.preventDefault();
-    datosConsulta(busqueda);
-  };
+    e.preventDefault()
+    datosConsulta(busqueda)
+  }
 
   return (
-    <form onSubmit={ consultarClima }>
+    <form onSubmit={consultarClima}>
       <div className="input-field col s12">
         <input
           id="ciudad"
           name="ciudad"
-          onChange={ handleChange }
+          onChange={handleChange}
           type="text"
         />
         <label htmlFor="ciudad">Ciudad: </label>
       </div>
       <div className="input-field col s12">
-        <select onChange={ handleChange } name="pais">
+        <select onChange={handleChange} name="pais">
           <option value="">--Selecciona un País--</option>
           <option value="us">Estados Unidos</option>
           <option value="mx">México</option>
@@ -48,7 +48,7 @@ const Formulario = ({ datosConsulta }) => {
           value="Buscar Clima" />
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default Formulario;
+export default Formulario
